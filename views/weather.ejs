@@ -14,24 +14,30 @@
               </tr>
             </thead>
             <tbody>
-                <% for (let i = 0; i < data.hourly.time.length; i++){%>
-                    <% let date_string = data.hourly.time[i]%>
+                <% for (let i = 0; i < json_data.hourly.time.length; i++){%>
+                    <% let date_string = json_data.hourly.time[i]%>
+                    <% let month%>
+                    <% let day%>
+                    <% if(date_string.split('-')[1] == '09'){%>
+                    <% month = 'September';%>
+                    <% }%>
+                    <% if(date_string.split('-')[1] == '10'){%>
+                      <% month = 'October';%>
+                      <% }%>
+                    <% day = (date_string.split('-')[2]).split('T')[0];%>
                     <% if (date_string.split('T')[1] == '12:00' || date_string.split('T')[1] == '08:00' || date_string.split('T')[1] == '16:00' || date_string.split('T')[1] == '20:00'){%>
                     <tr>
-                        <th>  <%= date_string.split('T')[0]%> </th>
+                        <th>  <%= month + ' ' + day%> </th>
                         <th>  <%= date_string.split('T')[1]%> </th>
-                        <th>  <%= Math.floor(data.hourly.temperature_2m[i]) %></th>
+                        <th>  <%= Math.floor(json_data.hourly.temperature_2m[i]) %></th>
                     </tr>
                     <% }%>
                 <% }%>
             </tbody>
           </table>
-
     </div>
 
 </div>
 
     
 </body>
-
-

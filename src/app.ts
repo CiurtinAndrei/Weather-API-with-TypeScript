@@ -50,7 +50,7 @@ app.get('/weather', (req: Request, res: Response) => {
     })
     .finally(()=>{
         //console.log('Weather page rendered successfully with the API data!')
-        res.render('weather.ejs', {data:api_response, oras:oras});
+        res.render('weather.ejs', {json_data:api_response, oras:oras});
     });
 
     
