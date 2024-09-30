@@ -1,0 +1,34 @@
+
+
+.page-container{
+    background-color: rgb(92, 91, 91);
+    font-family: Inter;
+    color: white;
+    position: relative;
+    width: 1000px;
+    height: 800px;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.custom-table{
+
+   margin:auto;
+   position: relative;
+   height: 500px; 
+   width: 800px;
+   
+}
+
+table, th, td{
+    border: 2px solid rgb(49, 49, 49);
+    border-collapse: collapse;
+}
+
+.scrollable-container{
+    overflow-y: scroll;
+    height: 622px;
+    margin-top: 10px;
+}

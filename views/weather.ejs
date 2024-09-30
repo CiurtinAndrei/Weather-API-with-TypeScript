@@ -1,0 +1,38 @@
+<%-include('../public/header.ejs') %>
+<body style = "background-image: linear-gradient(35deg, gray, rgb(143, 142, 142)); background-attachment: fixed;">
+
+<div class = "page-container">
+
+    <h1 class = "text-center" style = "margin-top:10px"> Temperature in: <%= oras %></h1>
+    <div class = "scrollable-container" style = "margin-top: 60px">
+
+        <table class="custom-table text-center" style = "margin-top: 50; font-size: 18px; color: white;">
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Temperature (Degrees Celsius)</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% for (let i = 0; i < data.hourly.time.length; i++){%>
+                    <% let date_string = data.hourly.time[i]%>
+                    <% if (date_string.split('T')[1] == '12:00' || date_string.split('T')[1] == '08:00' || date_string.split('T')[1] == '16:00' || date_string.split('T')[1] == '20:00'){%>
+                    <tr>
+                        <th>  <%= date_string.split('T')[0]%> </th>
+                        <th>  <%= date_string.split('T')[1]%> </th>
+                        <th>  <%= Math.floor(data.hourly.temperature_2m[i]) %></th>
+                    </tr>
+                    <% }%>
+                <% }%>
+            </tbody>
+          </table>
+
+    </div>
+
+</div>
+
+    
+</body>
+
+
