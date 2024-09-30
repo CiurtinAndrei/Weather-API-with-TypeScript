@@ -1,6 +1,5 @@
 import express, {Express, Request, Response} from "express";
 import axios from "axios";
-import formidable from "formidable";
 
 //using the weather forecast API from open-meteo
 
