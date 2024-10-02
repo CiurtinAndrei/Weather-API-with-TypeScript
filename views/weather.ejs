@@ -26,10 +26,10 @@
                       <% month = 'October';%>
                       <% }%>
                     <% day = (date_string.split('-')[2]).split('T')[0];%>
-                    <% if (date_string.split('T')[1] == '12:00' || date_string.split('T')[1] == '08:00' || date_string.split('T')[1] == '16:00' || date_string.split('T')[1] == '20:00'){%>
+                    <% if (date_string.split('T')[1] == '12:00'){%>
                     <tr>
                         <th>  <%= month + ' ' + day%> </th>
-                        <% date_time.push(date_string.split('T')[1]);%>
+                        <% date_time.push(month + ' ' + day + ' ' + date_string.split('T')[1]);%>
                         <th>  <%= date_string.split('T')[1]%> </th>
                         <th>  <%= Math.floor(json_data.hourly.temperature_2m[i]) %></th>
                         <%temperature.push((json_data.hourly.temperature_2m[i])) %>
@@ -50,23 +50,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
   Chart.defaults.color = '#FFF';
-  let labels = '<%- JSON.stringify(date_time);%>';
-  labels = labels.split(',');
-  for (let i = 0; i < labels.length; i++){
-   labels[i] = labels[i].replace('["', '');
-   labels[i] = labels[i].replace('"]', '');
-   labels[i] = labels[i].replace('"', '');
-   labels[i]= labels[i].replace('"', '');
-   }
-
-   let data = '<%- JSON.stringify(temperature);%>';
-  data = data.split(',');
-  for (let i = 0; i < data.length; i++){
-    data[i] = data[i].replace('["', '');
-    data[i] = data[i].replace('"]', '');
-    data[i] = data[i].replace('"', '');
-    data[i]= data[i].replace('"', '');
-   }
+  let labels = <%- JSON.stringify(date_time);%>
+   let data = <%- JSON.stringify(temperature);%>
 
   const ctx = document.getElementById('myChart');
   new Chart(ctx, {
@@ -74,7 +59,7 @@
     data: {
       labels: labels,
       datasets: [{
-        label: 'Title',
+        label: 'Temperatura (grade Celsius)',
         data: data,
         borderWidth: 1,
       }]
