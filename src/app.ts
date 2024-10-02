@@ -44,6 +44,7 @@ app.get('/weather', (req: Request, res: Response) => {
         //console.log(response.data.hourly);
         //console.log('OpenMeteo API data successfully retrieved!');
         api_response = response.data;
+     
     })
     .catch((error)=>{
         console.log('Error when retrieving data from the OpenMeteoAPI: ' + error);
