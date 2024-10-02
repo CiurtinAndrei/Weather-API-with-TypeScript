@@ -38,10 +38,11 @@
                 <% }%>
             </tbody>
           </table>
+          <canvas id="myChart" style = "margin-top: 60px" ></canvas>
     </div>
 
     <div> 
-      <canvas id="myChart" ></canvas>
+      
     </div>
     
 
@@ -59,7 +60,7 @@
     data: {
       labels: labels,
       datasets: [{
-        label: 'Temperatura (grade Celsius)',
+        label: 'Temperature (Deg. Celsius)',
         data: data,
         borderWidth: 1,
       }]
@@ -74,9 +75,6 @@
   });
 </script>
     
-<% //console.log(date_time); %>
-<% //console.log(temperature);%>
-
 
 </body>
 
